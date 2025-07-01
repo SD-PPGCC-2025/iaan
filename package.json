@@ -1,0 +1,23 @@
+{
+  "name": "faculdade",
+  "version": "1.0.0",
+  "description": "gossip-protocol-nodejs",
+  "main": "gossip_rumor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SD-PPGCC-2025/iaan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SD-PPGCC-2025/iaan/issues"
+  },
+  "homepage": "https://github.com/SD-PPGCC-2025/iaan#readme",
+  "dependencies": {
+    "dgram": "^1.0.1"
+  }
+}
