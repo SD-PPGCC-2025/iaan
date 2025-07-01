@@ -20,6 +20,7 @@ function logPeers() {
       console.log(`  [${idx}] ${peer}`);
     });
   }
+  
 }
 
 function sendRumor(rumor, excludePeer = null) {

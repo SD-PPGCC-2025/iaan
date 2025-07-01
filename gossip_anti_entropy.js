@@ -18,6 +18,7 @@ function logPeers() {
       console.log(`  [${idx}] ${peer}`);
     });
   }
+  
 }
 
 function sendSyncRequest(peer) {
@@ -105,6 +106,15 @@ setInterval(() => {
   if (peer) {
     sendSyncRequest(peer);
   }
+    const ids = Object.keys(knownMessages);
+    if (ids.length === 0) {
+      console.log('[MESSAGES] Nenhuma mensagem conhecida.');
+    } else {
+      console.log('[MESSAGES] Mensagens conhecidas:');
+      ids.forEach(id => {
+        console.log(`  ${id}: "${knownMessages[id]}"`);
+      });
+    }
 }, SYNC_INTERVAL);
 
 const rl = readline.createInterface({
@@ -116,15 +126,15 @@ function sendNewMessage(text) {
   const id = `${PORT}-${Date.now()}`;
   knownMessages[id] = text;
   // Propaga para todos os peers imediatamente
-  PEERS.forEach(peer => {
-    const [host, port] = peer.split(':');
-    const msg = {
-      type: 'new_message',
-      id,
-      text
-    };
-    server.send(Buffer.from(JSON.stringify(msg)), 0, JSON.stringify(msg).length, parseInt(port), host);
-  });
+  // PEERS.forEach(peer => {
+  //   const [host, port] = peer.split(':');
+  //   const msg = {
+  //     type: 'new_message',
+  //     id,
+  //     text
+  //   };
+  //   server.send(Buffer.from(JSON.stringify(msg)), 0, JSON.stringify(msg).length, parseInt(port), host);
+  // });
   console.log(`[NOVA] Mensagem criada: "${text}"`);
 }
 
